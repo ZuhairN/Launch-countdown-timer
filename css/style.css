@@ -1,0 +1,99 @@
+:root {
+  --clr-grayish-blue: 237 18% 59%;
+  --clr-soft-red: 345 95% 68%;
+  --clr-white: 0 0% 100%;
+  --clr-d-desaturated-blue: 236 21% 26%;
+  --clr-vd-blue: 235 16% 14%;
+  --clr-blackish-blue: 234 17% 12%;
+  --clr-kinda-brown: 273 23% 18%;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Red Hat Text', sans-serif;
+  font-size: 0.875rem;
+  flex-direction: column;
+  color: hsl(var(--clr-white));
+  background: linear-gradient(
+    hsl(var(--clr-vd-blue)),
+    hsl(var(--clr-kinda-brown))
+  );
+}
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.main {
+  background-image: url(../images/bg-stars.svg);
+  background-position: center;
+  background-size: contain;
+  width: 95%;
+  margin: 0 auto;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  --gap: min(12vw, 5rem);
+  text-transform: uppercase;
+  text-align: center;
+}
+.main h1 {
+  font-size: 1.3rem;
+  letter-spacing: 5px;
+  line-height: 1.2;
+}
+
+.countdown {
+  grid-template-columns: repeat(4, 1fr);
+  --gap: min(1.5rem, 4vw);
+}
+.countdown div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.countdown span {
+  width: 100%;
+  padding: 0.4em 0.3em;
+  color: hsl(var(--clr-soft-red));
+  background-color: hsl(var(--clr-d-desaturated-blue));
+  font-size: clamp(1.5rem, 1rem + 5vw, 4rem);
+  border-radius: 4px;
+  box-shadow: 0 7px 5px -2px hsl(var(--clr-blackish-blue));
+}
+
+.countdown h2 {
+  font-size: clamp(0.5rem, 1.5vw, 0.875rem);
+  letter-spacing: 3px;
+  color: hsl(var(--clr-grayish-blue));
+}
+
+.footer {
+  min-height: 12.3rem;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: auto;
+  padding-bottom: min(13vw, 5rem);
+  background-image: url(../images/pattern-hills.svg);
+  background-repeat: no-repeat;
+  background-position: 80%;
+  background-size: cover;
+}
+.footer-links {
+  --gap: 2rem;
+}
+.footer-links a {
+  color: hsl(var(--clr-grayish-blue));
+}
+.footer-links a:hover {
+  color: hsl(var(--clr-soft-red));
+}
+
+@media (min-width: 45em) {
+}
