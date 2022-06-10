@@ -23,15 +23,11 @@ body {
   display: flex;
   gap: var(--gap, 1rem);
 }
-.grid {
-  display: grid;
-  gap: var(--gap, 1rem);
-}
 
 .main {
   background-image: url(../images/bg-stars.svg);
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   width: 95%;
   margin: 0 auto;
   flex-grow: 1;
@@ -49,7 +45,6 @@ body {
 }
 
 .countdown {
-  grid-template-columns: repeat(4, 1fr);
   --gap: min(1.5rem, 4vw);
 }
 .countdown div {
@@ -58,8 +53,15 @@ body {
   align-items: center;
   gap: 1rem;
 }
-.countdown span {
-  width: 100%;
+.countdown h2 {
+  font-size: clamp(0.5rem, 1.5vw, 0.875rem);
+  letter-spacing: 3px;
+  color: hsl(var(--clr-grayish-blue));
+}
+.flip {
+  position: relative;
+  overflow: hidden;
+  width: 2em;
   padding: 0.4em 0.3em;
   color: hsl(var(--clr-soft-red));
   background-color: hsl(var(--clr-d-desaturated-blue));
@@ -67,11 +69,22 @@ body {
   border-radius: 4px;
   box-shadow: 0 7px 5px -2px hsl(var(--clr-blackish-blue));
 }
-
-.countdown h2 {
-  font-size: clamp(0.5rem, 1.5vw, 0.875rem);
-  letter-spacing: 3px;
-  color: hsl(var(--clr-grayish-blue));
+.flip::before,
+.flip::after {
+  content: '';
+  position: absolute;
+  z-index: 1000;
+  top: calc(50% - 5px);
+  background-color: hsl(var(--clr-blackish-blue));
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+.flip::before {
+  left: -5px;
+}
+.flip::after {
+  right: -5px;
 }
 
 .footer {
@@ -93,7 +106,4 @@ body {
 }
 .footer-links a:hover {
   color: hsl(var(--clr-soft-red));
-}
-
-@media (min-width: 45em) {
 }
